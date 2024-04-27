@@ -1,0 +1,242 @@
+:root {
+    --ui-accent-color: #8441ef;
+    --ui-glass-blur: 25px;
+    --ui-text-color: #fff;
+    --ui-text-color-secondary: #ffffff9e;
+    --e-font-family: 'Bicubik', Arial, sans-serif;
+    --e-font-family-mono: 'Larabie', Arial, sans-serif;
+    --font-size-lg: 18px;
+    --font-size-normal: 14px;
+    --font-size-sm: 12px;
+    --font-size-xs: 10px;
+    --font-size-label: var(--font-size-normal);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: var(--e-font-family);
+}
+
+@font-face {
+    font-family: 'Bicubik';
+    src: url('/public/resources/fonts/Bicubik.woff2') format('woff2'),
+        url('/public/resources/fonts/Bicubik.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Larabiefont';
+    src: url('/public/resources/fonts/LarabiefontRg-Regular.woff2') format('woff2'),
+        url('/public/resources/fonts/LarabiefontRg-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.ui-typography {
+    color: var(--ui-text-color);
+    margin-bottom: 10px;
+}
+
+.ui-typography-xs {
+    font-size: var(--font-size-xs);
+}
+
+.ui-typography-sm {
+    font-size: var(--font-size-sm);
+}
+
+.ui-typography-normal {
+    font-size: var(--font-size-normal);
+}
+
+.ui-typography-lg {
+    font-size: var(--font-size-lg);
+}
+
+input[type="range"] {
+    accent-color: var(--ui-accent-color);
+}
+
+.ui-hstack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-glass {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(var(--ui-glass-blur));
+    -webkit-backdrop-filter: blur(var(--ui-glass-blur));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ui-rounded-button[data-active="true"] {
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.ui-rounded-button {
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: none;
+    cursor: pointer;
+}
+
+.ui-rounded-button::after {
+    content: '';
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+    transform: scale(0.7);
+}
+
+.ui-labelled-setting {
+    display: block;
+    color: var(--ui-text-color);
+    margin-bottom: 10px;
+}
+
+.ui-labelled-setting > label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: var(--font-size-label);
+}
+
+.annotation {
+    position: relative;
+    overflow: visible;
+    transition: opacity ease-in 0.2s;
+    user-select: none;
+    pointer-events: all;
+    z-index: 1;
+}
+
+.annotation:hover {
+    border-width: 2px !important;
+    cursor: pointer;
+}
+
+.annotation.hidden {
+    opacity: 0;
+}
+
+.annotation-label {
+    top: 0;
+    left: 0;
+    color: #fff;
+    overflow: visible;
+    transform: translate(100%, -100%);
+    font-size: var(--font-size-sm);
+    pointer-events: none;
+}
+
+.ui-settings-manager {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 200px;
+    min-height: 300px;
+    padding: 20px;
+    z-index: 10;
+}
+
+.ui-slider {
+    
+}
+
+.ui-slider > input {
+    width: 100%;
+}
+
+.ui-back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.ui-back-button::after {
+    -webkit-mask-image: url('/public/resources/icons/left.svg');
+    mask-image: url('/public/resources/icons/left.svg');
+}
+
+.ui-route-title {
+    padding-left: 50px;
+    margin-bottom: 15px;
+    line-height: 30px;
+    color: var(--ui-text-color);
+}
+
+.ui-object-parameter {
+    color: var(--ui-text-color);
+    font-size: var(--font-size-sm);
+    margin-bottom: 10px;
+}
+
+.ui-parameter-name {
+    color: var(--ui-text-color-secondary);
+}
+
+.ui-parameter-value {
+    font-family: var(--e-font-family-mono);
+}
+
+.ui-play-button {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.ui-play-button[data-playing="true"]::after {
+    -webkit-mask-image: url('/public/resources/icons/pause.svg');
+    mask-image: url('/public/resources/icons/pause.svg');
+}
+
+.ui-play-button[data-playing="false"]::after {
+    -webkit-mask-image: url('/public/resources/icons/play.svg');
+    mask-image: url('/public/resources/icons/play.svg');
+    transform: scale(0.7) translateX(2px);
+}
+
+.ui-parameter-annotation {
+    display: block;
+    margin-top: 5px;
+    color: var(--ui-text-color-secondary);
+    font-size: var(--font-size-xs);
+}
+
+.ui-rate-controls {
+    display: flex;
+    align-items: center;
+}
+
+.ui-play-button {
+    display: block;
+    margin: 0 auto;
+}
+
+.ui-rewind-back::after, .ui-rewind-forward::after {
+    transform: scale(0.4);
+}
+
+.ui-rewind-back::after {
+    -webkit-mask-image: url('/public/resources/icons/rewind-back.svg');
+    mask-image: url('/public/resources/icons/rewind-back.svg');
+}
+
+.ui-rewind-forward::after {
+    -webkit-mask-image: url('/public/resources/icons/rewind-forward.svg');
+    mask-image: url('/public/resources/icons/rewind-forward.svg');
+}
